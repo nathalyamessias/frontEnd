@@ -16,8 +16,8 @@ body {
   background-color: var(--cor-fundo);
   color: var(--cor-texto);
   display: grid;
+  /* Removido o "topo" daqui */
   grid-template:
-    "topo"     auto
     "conteudo" 1fr
     / 1fr;
   min-height: 100vh;
@@ -61,13 +61,15 @@ body {
 }
 
 .topo {
-  grid-area: topo;
+  /* Removido o grid-area: topo; */
+  grid-column: 1 / -1; /* Garante que o header ocupe a largura total dentro da main */
   background-color: #fff;
   padding: 1.25rem 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   border-bottom: 1px solid #ddd;
+  border-radius: 10px; /* Opcional: para combinar com os cartões, já que agora está solto na main */
 }
 
 .topo-saudacao {
@@ -124,8 +126,8 @@ body {
 
 @media (width >= 768px) {
   body {
+    /* Removido o "topo" daqui também */
     grid-template:
-      "menu topo"     auto
       "menu conteudo" 1fr
       / 220px 1fr;
   }
