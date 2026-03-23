@@ -141,7 +141,8 @@
     .conteudo {
       grid-template-columns: 1fr 1fr;
     }
-  } 
+  }
+  
   .pagina-login {
     display: grid;
     grid-template:
