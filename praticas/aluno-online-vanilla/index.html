@@ -1,12 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/javascript.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Aluno Online</title>
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <script type="module" src="/src/main.js"></script>
+
+    <aside class="menu">
+      <h1 class="menu-logo">
+        <img src="public/learn.svg" alt="Logo Aluno Online" />
+        Aluno Online
+      </h1>
+      <nav class="menu-nav">
+        <ul>
+          <li><a href="#">Dashboard</a></li>
+          <li><a href="#">Notas</a></li>
+          <li><a href="#">Faltas</a></li>
+          <li><a href="#">Boletos</a></li>
+          <li><a href="#">Requerimentos</a></li>
+          <li><a href="#">Sair</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+
+    <main class="conteudo">
+      <header class="topo">
+        <hgroup>
+          <p class="topo-saudacao">Olá, Aluno!</p>
+          <p class="topo-subtitulo">Bem-vindo ao portal do aluno</p>
+        </hgroup>
+        <img src="public/avatar.svg" alt="Foto de perfil do usuário" />
+      </header>
+
+      <section class="cartao">
+        <h2>Mural de Avisos</h2>
+        <ul>
+          <li>Inscrição para o projeto de extensão</li>
+          <li>Eleição para representante de turma</li>
+        </ul>
+      </section>
+
+      <section class="cartao">
+        <h2>Calendário Acadêmico</h2>
+        <ul>
+          <li>23/02 - Início do período letivo 2026-1</li>
+          <li>25/04 - Prazo final para aplicação da P1</li>
+          <li>23/06 - Prazo final para aplicação da P2</li>
+          <li>04/07 - Fim do período letivo 2026-1</li>
+        </ul>
+      </section>
+
+      <section class="cartao cartao-largo">
+        <h2>Minhas Disciplinas</h2>
+        <ul>
+          <li>BI e Data Warehousing</li>
+          <li>Construção de Frontend</li>
+          <li>Arquitetura de Software</li>
+        </ul>
+      </section>
+
+    </main>
+
   </body>
 </html>
