@@ -1,40 +1,36 @@
-import "./style.css";
-console.log("Script carregou com sucesso!");
+const form = document.getElementById("form-login");
+const campoEmail = document.getElementById("email");
+const campoSenha = document.getElementById("senha");
 
-// Garantimos que o código só rode depois que a página HTML inteira carregar
-document.addEventListener('DOMContentLoaded', function() {
-  const formLogin = document.getElementById('form-login');
+function mostrarErro(campo, mensagem) {
+  campo.classList.add("input-invalido");
+  campo.nextElementSibling.textContent = mensagem;
+}
 
-  if (formLogin) {
-    formLogin.addEventListener('submit', function (evento) {
-      // 🚨 Essa é a linha mágica que impede a página de recarregar!
-      evento.preventDefault();
+function limparErro(campo) {
+  campo.classList.remove("input-invalido");
+  campo.nextElementSibling.textContent = "";
+}
 
-      const email = document.getElementById('email').value.trim();
-      const senha = document.getElementById('senha').value.trim();
-      const erroEmail = document.getElementById('erro-email');
-      const erroSenha = document.getElementById('erro-senha');
+campoEmail.addEventListener("input", () => limparErro(campoEmail));
+campoSenha.addEventListener("input", () => limparErro(campoSenha));
 
-      let formularioValido = true;
+form.addEventListener("submit", (evento) => {
+  evento.preventDefault();
 
-      // Limpamos os erros
-      erroEmail.textContent = "";
-      erroSenha.textContent = "";
+  let valido = true;
 
-      if (email === "") {
-        erroEmail.textContent = "O campo de email é obrigatório.";
-        formularioValido = false;
-      }
+  if (campoEmail.value.trim() === "") {
+    mostrarErro(campoEmail, "O campo de email é obrigatório.");
+    valido = false;
+  }
 
-      if (senha === "") {
-        erroSenha.textContent = "O campo de senha é obrigatório.";
-        formularioValido = false;
-      }
+  if (campoSenha.value.trim() === "") {
+    mostrarErro(campoSenha, "O campo de senha é obrigatório.");
+    valido = false;
+  }
 
-      if (formularioValido === true) {
-        // Redireciona para o Dashboard se estiver tudo certo
-        window.location.href = "./index.html";
-      }
-    });
+  if (valido) {
+    window.location.href = "index.html";
   }
 });
