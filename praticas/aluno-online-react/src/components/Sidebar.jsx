@@ -1,5 +1,4 @@
-import MenuNavegacao from './Menunavegacao';
-
+import MenuNavegacao from './Menunavegação';
 export default function Sidebar() {
   return (
     <aside className="hidden md:flex flex-col gap-6 w-[250px] bg-[#E9E9E9] border-r border-gray-300 p-5">
