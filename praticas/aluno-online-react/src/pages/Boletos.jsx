@@ -1,3 +1,4 @@
+// src/pages/Boletos.jsx
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import Tabela from '../components/Tabela';

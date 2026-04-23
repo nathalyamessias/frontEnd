@@ -1,3 +1,4 @@
+// src/components/CardLista.jsx
 export default function CardLista({ titulo, itens }) {
   return (
     <div className="border border-[#d7d7d7] rounded-lg overflow-hidden bg-white">

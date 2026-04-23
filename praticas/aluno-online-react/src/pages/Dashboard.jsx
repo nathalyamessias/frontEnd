@@ -1,3 +1,4 @@
+// src/pages/Dashboard.jsx
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
 import CardLista from '../components/CardLista';
