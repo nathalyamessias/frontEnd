@@ -3,13 +3,14 @@ import Faltas from './pages/Faltas';
 import Boletos from './pages/Boletos';
 import Notas from './pages/Notas';
 import Requerimentos from './pages/Requerimentos';
+import Login from './Pages/Login';
 
 export default function App() {
   return (
     <>
-      {/* Tiramos o comentário apenas do Dashboard para testar a tela dele */}
+      {/* <Login /> */}
       <Dashboard />
-       {/*<Notas />*/}
+      {/*<Notas />*/}
       {/* <Faltas /> */}
       {/* <Boletos /> */}
       {/* <Requerimentos /> */}

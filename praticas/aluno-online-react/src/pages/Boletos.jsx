@@ -1,7 +1,6 @@
 // src/pages/Boletos.jsx
 import Sidebar from '../components/Sidebar';
 import Header from '../components/Header';
-import TextoDescritivo from '../components/TextoDescritivo';
 import Tabela from '../components/Tabela';
 
 export default function Boletos() {
@@ -29,11 +28,12 @@ export default function Boletos() {
       <Sidebar paginaAtual="Boletos" />
       
       <div className="flex flex-col flex-1 p-6 md:p-10">
-        <Header titulo="Meus Boletos" />
+        <Header 
+          titulo="Meus Boletos" 
+          descricao="Histórico de Pagamentos" 
+        />
         
         <main>
-          <TextoDescritivo texto="Histórico de Pagamentos" />
-          
           <Tabela colunas={colunasBoletos} dados={dadosBoletos} />
         </main>
         
