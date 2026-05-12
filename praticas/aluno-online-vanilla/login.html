@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login — Aluno Online</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body class="pagina-login">
+
+    <main class="login">
+      <header class="login-cabecalho">
+        <img src="public/learn.svg" alt="Logo Aluno Online" />
+        <h1>Aluno Online</h1>
+      </header>
+
+      <form class="login-form" id="form-login" novalidate>
+
+        <label for="email">E-mail</label>
+        <input type="email" id="email" name="email" />
+        <small class="erro" id="erro-email"></small>
+
+        <label for="senha">Senha</label>
+        <input type="password" id="senha" name="senha" />
+        <small class="erro" id="erro-senha"></small>
+
+        <button type="submit">Entrar</button>
+      </form>
+    </main>
+
+    <footer class="rodape">
+      <p>© 2026. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="src/main.js" type="module"></script>
+
+  </body>
+</html>
