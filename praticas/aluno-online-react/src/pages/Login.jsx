@@ -1,11 +1,14 @@
 import { useState } from "react";
 import FormLogin from "../Components/FormLogin";
+import { useAuth } from "../contexts/AuthContext";
 
-export default function Login({ navegaPara }) {
+export default function Login() {
     const [email, setEmail] = useState("");
     const [senha, setSenha] = useState("");
     const [emailErro, setEmailErro] = useState("");
     const [senhaErro, setSenhaErro] = useState("");
+
+    const { login } = useAuth();
 
     const handleSubmit = (e) => {
         e.preventDefault(); 
@@ -33,16 +36,17 @@ export default function Login({ navegaPara }) {
         }
 
         if (formularioValido) {
-            if (navegaPara) {
-                navegaPara(1); 
-            }
+            login({
+                email: email,
+                senha: senha
+            });
         }
     };
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-white font-sans">
-                    <div className="bg-white p-8 rounded-lg border-1 border-[#d7d7d7] w-full max-w-[460px]">
-                    <div className="flex flex-col items-center mb-8">
+            <div className="bg-white p-8 rounded-lg border-1 border-[#d7d7d7] w-full max-w-[460px]">
+                <div className="flex flex-col items-center mb-8">
                     <img src="/learn.svg" alt="Logo Aluno Online" className="w-30 h-30 mb-4"/>
                     <h1 className="font-bold text-4xl text-gray-900">Aluno Online</h1>
                 </div>

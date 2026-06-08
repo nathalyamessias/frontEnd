@@ -1,6 +1,10 @@
 import { NavLink } from 'react-router';
+import { useAuth } from '../../Contexts/AuthContext';
 
 export default function Sidebar() {
+
+  const { logout } = useAuth();
+
   const navLinkClass = ({ isActive }) => {
     const classesBase = "flex items-center gap-2 px-4 py-2 rounded-md transition-colors font-medium ";
 
@@ -45,6 +49,15 @@ export default function Sidebar() {
           </li>
         </ul>
       </nav>
+
+      <div className="mt-auto pt-4 border-t border-gray-300">
+        <button 
+          onClick={logout} 
+          className="w-full flex items-center gap-2 px-4 py-2 text-red-600 hover:bg-red-100 transition-colors font-medium rounded-md"
+        >
+          Sair
+        </button>
+      </div>
       
     </aside>
   );
