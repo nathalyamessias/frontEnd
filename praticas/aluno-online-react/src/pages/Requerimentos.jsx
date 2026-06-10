@@ -1,6 +1,7 @@
-import Header from '../components/Header';
-import TextoDescritivo from '../components/TextoDescritivo';
-import Tabela from '../components/Tabela'; 
+import { Link } from 'react-router';
+import Header from '../Components/Header';
+import TextoDescritivo from '../Components/TextoDescritivo';
+import Tabela from '../Components/Tabela'; 
 
 export default function Requerimentos() {
   
@@ -22,7 +23,15 @@ export default function Requerimentos() {
         <Header titulo="Meus Requerimentos" />
 
         <main>
-          <TextoDescritivo texto="Faça solicitações online para a secretaria" />  
+          <div className="flex justify-between items-center mb-6">
+            <TextoDescritivo texto="Faça solicitações online para a secretaria" />  
+            <Link 
+              to="/requerimentos/novo" 
+              className="bg-white hover:bg-black text-black hover:text-white border-3 border-black p-4 font-bold py-2 px-4 rounded transition"
+            >
+              ➕ Novo Requerimento
+            </Link>
+          </div>
           
           <Tabela colunas={colunasRequerimentos} dados={dadosRequerimentos} />
         </main>

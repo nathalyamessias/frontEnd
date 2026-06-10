@@ -1,7 +1,7 @@
-import Header from '../components/Header';
-import TextoDescritivo from '../components/TextoDescritivo';
-import CardLista from '../components/CardLista';
-import { useAuth } from '../contexts/AuthContext';
+import Header from '../Components/Header';
+import TextoDescritivo from '../Components/TextoDescritivo';
+import CardLista from '../Components/CardLista';
+import { useAuth } from '../Contexts/AuthContext';
 
 export default function Dashboard() {
   const { usuario } = useAuth();
