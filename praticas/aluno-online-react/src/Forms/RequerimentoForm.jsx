@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router';
 import Header from '../Components/Header';
+import { criarRequerimento } from '../services/requerimentoService';
 
 export default function RequerimentoForm() {
   const dataHoje = new Date().toLocaleDateString('en-CA'); 
@@ -13,11 +14,20 @@ export default function RequerimentoForm() {
   
   const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    console.log("Novo Requerimento Registrado:", data);
-    reset(); 
-    alert("Requerimento salvo com sucesso!");
-    navigate("/requerimentos"); 
+  const onSubmit = async (data) => {
+    try {
+      const dadosComSituacao = { ...data, situacao: "Em análise" };
+
+      await criarRequerimento(dadosComSituacao);
+      console.log("Novo Requerimento Registrado na API:", dadosComSituacao);
+
+      reset();
+      alert("Requerimento salvo com sucesso!");
+      navigate("/requerimentos");
+    } catch (error) {
+      console.error("Erro ao salvar:", error);
+      alert("Erro ao salvar o requerimento.");
+    }
   };
 
   return (
@@ -28,7 +38,7 @@ export default function RequerimentoForm() {
         <main className="mt-6 max-w-2xl">
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
             
-              <div className="flex flex-col">
+            <div className="flex flex-col">
               <label className="mb-2 font-semibold text-gray-700">Tipo de Requerimento</label>
               <select 
                 {...register("tipo", { required: "O Tipo de Requerimento é obrigatório." })}

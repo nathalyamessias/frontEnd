@@ -1,19 +1,34 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router';
 import Header from '../Components/Header';
 import TextoDescritivo from '../Components/TextoDescritivo';
-import Tabela from '../Components/Tabela'; 
+import Tabela from '../Components/Tabela';
+import { listarRequerimentos } from '../services/requerimentoService';
 
 export default function Requerimentos() {
   
-  const colunasRequerimentos = ["Tipo de Requerimento", "Data de Solicitação", "Situação"];
+  const [lista, setLista] = useState([]);
+  const colunasRequerimentos = ["Tipo de Requerimento", "Descrição", "Data de Solicitação", "Situação"];
 
-  const dadosRequerimentos = [
-    { tipo: "Revisão de Menção", data: "15/12/2025", situacao: "Indeferido" },
-    { tipo: "Dispensa de Disciplina", data: "12/06/2025", situacao: "Indeferido" },
-    { tipo: "Trancamento de Matrícula", data: "05/01/2024", situacao: "Deferido" },
-    { tipo: "Mudança de Turno", data: "10/10/2023", situacao: "Deferido" },
-    { tipo: "Renovação de Matrícula", data: "20/02/2023", situacao: "Deferido"}
-  ];
+  useEffect(() => {
+    const carregarDados = async () => {
+      try {
+        const dados = await listarRequerimentos();
+        setLista(dados);
+      } catch (error) {
+        console.error(error);
+      }
+    };
+
+    carregarDados();
+  }, []);
+
+  const dadosFormatados = lista.map((req) => ({
+    tipo: req.tipo,
+    descricao: req.descricao,
+    data: req.dataRequerimento,
+    situacao: req.situacao || "Em análise"
+  }));
 
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-[#FFFFFF] font-sans">
@@ -33,7 +48,7 @@ export default function Requerimentos() {
             </Link>
           </div>
           
-          <Tabela colunas={colunasRequerimentos} dados={dadosRequerimentos} />
+          <Tabela colunas={colunasRequerimentos} dados={dadosFormatados} />
         </main>
         
       </div>
