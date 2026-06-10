@@ -1,0 +1,19 @@
+{
+  "requerimentos": [
+    {
+      "dataRequerimento": "2026-06-10",
+      "tipo": "Revisão de Menção",
+      "descricao": "sssssssssssssssssssssssssssssssssssssss",
+      "situacao": "Em análise",
+      "id": "O9yG1F9LcbI"
+    },
+    {
+      "dataRequerimento": "2026-06-10",
+      "tipo": "Trancamento de Matrícula",
+      "descricao": "qwqwqwqwqwqwqwqwqwq",
+      "situacao": "Em análise",
+      "id": "oWBFlhuNbqE"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
