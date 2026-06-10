@@ -1,6 +1,6 @@
 import { useState } from "react";
 import FormLogin from "../Components/FormLogin";
-import { useAuth } from "../contexts/AuthContext";
+import { useAuth } from "../Contexts/AuthContext";
 
 export default function Login() {
     const [email, setEmail] = useState("");

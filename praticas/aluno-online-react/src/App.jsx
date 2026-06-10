@@ -1,5 +1,5 @@
 import { Routes, Route, Navigate } from 'react-router';
-import { useAuth } from './contexts/AuthContext';
+import { useAuth } from './Contexts/AuthContext';
 import Layout from './Components/Layout/Layout';
 import Dashboard from './Pages/Dashboard';
 import Faltas from './Pages/Faltas';
@@ -7,6 +7,7 @@ import Notas from './Pages/Notas';
 import Boletos from './Pages/Boletos';
 import Requerimentos from './Pages/Requerimentos';
 import Login from './Pages/Login';
+import RequerimentoForm from './Forms/RequerimentoForm';
 
 function App() {
   const { autenticado } = useAuth();
@@ -26,7 +27,10 @@ function App() {
         <Route path="faltas" element={<Faltas />} />
         <Route path="notas" element={<Notas />} />
         <Route path="boletos" element={<Boletos />} />
-        <Route path="requerimentos" element={<Requerimentos />} />
+        <Route path="requerimentos">
+          <Route index element={<Requerimentos />} />
+          <Route path="novo" element={<RequerimentoForm />} />
+        </Route>
       </Route>
 
       <Route path="*" element={<Navigate to={autenticado ? "/" : "/login"} />} />
